@@ -9,7 +9,7 @@ public class EmployeeAdapter implements ITarget {
 
     @Override
     public void processCompanySalary(String[][] employeesArray) {
-        var employees = Arrays.stream(employeesArray == null ? new String[0][] : employeesArray)
+        var employees = Arrays.stream(employeesArray)
                 .filter(Objects::nonNull)
                 .filter(data -> data.length >= 4)
                 .map(data -> new Employee(

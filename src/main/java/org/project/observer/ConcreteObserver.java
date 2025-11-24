@@ -1,15 +1,6 @@
 package org.project.observer;
 
-public class ConcreteObserver implements IObserver {
-    private final String userName;
-
-    public ConcreteObserver(String userName) {
-        this.userName = userName;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
+public record ConcreteObserver(String userName) implements IObserver {
 
     public void addSubscriber(ISubject subject) {
         subject.registerObserver(this);

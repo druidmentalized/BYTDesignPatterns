@@ -28,16 +28,16 @@ public class Subject implements ISubject {
 
     @Override
     public void registerObserver(IObserver observer) {
-        if (observer instanceof ConcreteObserver concreteObserver) {
-            IO.println("Observer Added : " + concreteObserver.getUserName());
+        if (observer instanceof ConcreteObserver(String userName)) {
+            IO.println("Observer Added : " + userName);
         }
         observers.add(observer);
     }
 
     @Override
     public void removeObserver(IObserver observer) {
-        if (observer instanceof ConcreteObserver concreteObserver) {
-            IO.println("Observer Removed : " + concreteObserver.getUserName());
+        if (observer instanceof ConcreteObserver(String userName)) {
+            IO.println("Observer Removed : " + userName);
         }
         observers.remove(observer);
     }
@@ -45,8 +45,9 @@ public class Subject implements ISubject {
     @Override
     public void notifyObservers() {
         IO.println("Product Name :" + productName + ", product Price : " + productPrice
-                + " is Now available. So, notifying all Registered users ");
+                + " is Now " + availability + ". So, notifying all Registered users ");
         IO.println();
+
         for (var observer : observers) {
             observer.update(availability);
         }
